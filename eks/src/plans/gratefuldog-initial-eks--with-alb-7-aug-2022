@@ -1,0 +1,1669 @@
+module.subnets.data.aws_availability_zones.default[0]: Reading...
+module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.data.aws_partition.current[0]: Reading...
+module.subnets.module.utils.data.aws_regions.opted_in: Reading...
+module.subnets.module.utils.data.aws_regions.default: Reading...
+module.eks_cluster.data.aws_iam_policy_document.assume_role[0]: Reading...
+module.alb.module.access_logs.module.s3_bucket.data.aws_caller_identity.current[0]: Reading...
+module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.data.aws_partition.current[0]: Read complete after 0s [id=aws]
+module.eks_cluster.data.aws_iam_policy_document.cluster_elb_service_role[0]: Reading...
+module.alb.module.access_logs.data.aws_partition.current: Reading...
+module.eks_node_group.data.aws_partition.current[0]: Reading...
+module.alb.module.access_logs.data.aws_partition.current: Read complete after 0s [id=aws]
+module.eks_node_group.data.aws_partition.current[0]: Read complete after 0s [id=aws]
+module.eks_cluster.data.aws_iam_policy_document.assume_role[0]: Read complete after 0s [id=189502314]
+module.alb.module.access_logs.data.aws_elb_service_account.default[0]: Reading...
+module.alb.module.access_logs.data.aws_elb_service_account.default[0]: Read complete after 0s [id=033677994240]
+module.eks_cluster.data.aws_partition.current[0]: Reading...
+module.alb.module.access_logs.module.s3_bucket.data.aws_partition.current[0]: Reading...
+module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.data.aws_canonical_user_id.default[0]: Reading...
+module.eks_node_group.data.aws_iam_policy_document.assume_role[0]: Reading...
+module.eks_cluster.data.aws_iam_policy_document.cluster_elb_service_role[0]: Read complete after 0s [id=3773311921]
+module.eks_cluster.data.aws_partition.current[0]: Read complete after 0s [id=aws]
+module.alb.module.access_logs.module.s3_bucket.data.aws_partition.current[0]: Read complete after 0s [id=aws]
+module.eks_node_group.data.aws_iam_policy_document.assume_role[0]: Read complete after 0s [id=1903849331]
+module.subnets.module.utils.data.aws_regions.not_opted_in: Reading...
+module.alb.module.access_logs.data.aws_iam_policy_document.default[0]: Reading...
+module.alb.module.access_logs.data.aws_iam_policy_document.default[0]: Read complete after 0s [id=2420270578]
+module.subnets.data.aws_availability_zones.default[0]: Read complete after 0s [id=us-east-2]
+module.subnets.module.utils.data.aws_regions.opted_in: Read complete after 0s [id=aws]
+module.subnets.module.utils.data.aws_regions.default: Read complete after 0s [id=aws]
+module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.data.aws_canonical_user_id.default[0]: Read complete after 0s [id=e09ede88e853ab1e1a581af75653654d63a8a2fceea4358674dea569fc23e980]
+module.subnets.module.utils.data.aws_regions.not_opted_in: Read complete after 0s [id=aws]
+module.alb.module.access_logs.module.s3_bucket.data.aws_caller_identity.current[0]: Read complete after 0s [id=240195868935]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+  # module.alb.aws_lb.default[0] will be created
+  + resource "aws_lb" "default" {
+      + arn                        = (known after apply)
+      + arn_suffix                 = (known after apply)
+      + desync_mitigation_mode     = "defensive"
+      + dns_name                   = (known after apply)
+      + drop_invalid_header_fields = false
+      + enable_deletion_protection = false
+      + enable_http2               = true
+      + enable_waf_fail_open       = false
+      + id                         = (known after apply)
+      + idle_timeout               = 60
+      + internal                   = false
+      + ip_address_type            = "ipv4"
+      + load_balancer_type         = "application"
+      + name                       = "gratefuldog-dev-terraform"
+      + preserve_host_header       = false
+      + security_groups            = (known after apply)
+      + subnets                    = (known after apply)
+      + tags                       = {
+          + "Name"      = "gratefuldog-dev-terraform"
+          + "Namespace" = "gratefuldog"
+          + "Stage"     = "dev"
+        }
+      + tags_all                   = {
+          + "Name"      = "gratefuldog-dev-terraform"
+          + "Namespace" = "gratefuldog"
+          + "Stage"     = "dev"
+        }
+      + vpc_id                     = (known after apply)
+      + zone_id                    = (known after apply)
+
+      + access_logs {
+          + bucket  = (known after apply)
+          + enabled = true
+        }
+
+      + subnet_mapping {
+          + allocation_id        = (known after apply)
+          + ipv6_address         = (known after apply)
+          + outpost_id           = (known after apply)
+          + private_ipv4_address = (known after apply)
+          + subnet_id            = (known after apply)
+        }
+    }
+
+  # module.alb.aws_lb_listener.http_forward[0] will be created
+  + resource "aws_lb_listener" "http_forward" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + load_balancer_arn = (known after apply)
+      + port              = 80
+      + protocol          = "HTTP"
+      + ssl_policy        = (known after apply)
+      + tags_all          = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # module.alb.aws_lb_target_group.default[0] will be created
+  + resource "aws_lb_target_group" "default" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "15"
+      + id                                 = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + name                               = "gratefuldog-dev-terraform-6087b8"
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = "HTTP1"
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags                               = {
+          + "Attributes" = "default"
+          + "Name"       = "gratefuldog-dev-terraform-6087b8"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all                           = {
+          + "Attributes" = "default"
+          + "Name"       = "gratefuldog-dev-terraform-6087b8"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + target_type                        = "ip"
+      + vpc_id                             = (known after apply)
+
+      + health_check {
+          + enabled             = true
+          + healthy_threshold   = 2
+          + interval            = 15
+          + matcher             = "200-399"
+          + path                = "/"
+          + port                = "traffic-port"
+          + protocol            = "HTTP"
+          + timeout             = 10
+          + unhealthy_threshold = 2
+        }
+
+      + stickiness {
+          + cookie_duration = 60
+          + enabled         = true
+          + type            = "lb_cookie"
+        }
+    }
+
+  # module.alb.aws_security_group.default[0] will be created
+  + resource "aws_security_group" "default" {
+      + arn                    = (known after apply)
+      + description            = "Controls access to the ALB (HTTP/HTTPS)"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = "gratefuldog-dev-terraform"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name"      = "gratefuldog-dev-terraform"
+          + "Namespace" = "gratefuldog"
+          + "Stage"     = "dev"
+        }
+      + tags_all               = {
+          + "Name"      = "gratefuldog-dev-terraform"
+          + "Namespace" = "gratefuldog"
+          + "Stage"     = "dev"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.alb.aws_security_group_rule.egress[0] will be created
+  + resource "aws_security_group_rule" "egress" {
+      + cidr_blocks              = [
+          + "0.0.0.0/0",
+        ]
+      + from_port                = 0
+      + id                       = (known after apply)
+      + protocol                 = "-1"
+      + security_group_id        = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 0
+      + type                     = "egress"
+    }
+
+  # module.alb.aws_security_group_rule.http_ingress[0] will be created
+  + resource "aws_security_group_rule" "http_ingress" {
+      + cidr_blocks              = [
+          + "0.0.0.0/0",
+        ]
+      + from_port                = 80
+      + id                       = (known after apply)
+      + prefix_list_ids          = []
+      + protocol                 = "tcp"
+      + security_group_id        = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 80
+      + type                     = "ingress"
+    }
+
+  # module.eks_cluster.data.aws_eks_cluster_auth.eks[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_eks_cluster_auth" "eks" {
+      + id    = (known after apply)
+      + name  = (known after apply)
+      + token = (sensitive value)
+    }
+
+  # module.eks_cluster.data.tls_certificate.cluster[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "tls_certificate" "cluster" {
+      + certificates = (known after apply)
+      + id           = (known after apply)
+      + url          = (known after apply)
+    }
+
+  # module.eks_cluster.aws_cloudwatch_log_group.default[0] will be created
+  + resource "aws_cloudwatch_log_group" "default" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + name              = "/aws/eks/gratefuldog-dev-terraform-cluster/cluster"
+      + retention_in_days = 7
+      + tags              = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all          = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+    }
+
+  # module.eks_cluster.aws_eks_addon.cluster["vpc-cni"] will be created
+  + resource "aws_eks_addon" "cluster" {
+      + addon_name        = "vpc-cni"
+      + addon_version     = (known after apply)
+      + arn               = (known after apply)
+      + cluster_name      = "gratefuldog-dev-terraform-cluster"
+      + created_at        = (known after apply)
+      + id                = (known after apply)
+      + modified_at       = (known after apply)
+      + resolve_conflicts = "NONE"
+      + tags              = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all          = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+    }
+
+  # module.eks_cluster.aws_eks_cluster.default[0] will be created
+  + resource "aws_eks_cluster" "default" {
+      + arn                       = (known after apply)
+      + certificate_authority     = (known after apply)
+      + created_at                = (known after apply)
+      + enabled_cluster_log_types = [
+          + "audit",
+        ]
+      + endpoint                  = (known after apply)
+      + id                        = (known after apply)
+      + identity                  = (known after apply)
+      + name                      = "gratefuldog-dev-terraform-cluster"
+      + platform_version          = (known after apply)
+      + role_arn                  = (known after apply)
+      + status                    = (known after apply)
+      + tags                      = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all                  = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + version                   = "1.22"
+
+      + encryption_config {
+          + resources = [
+              + "secrets",
+            ]
+
+          + provider {
+              + key_arn = (known after apply)
+            }
+        }
+
+      + kubernetes_network_config {
+          + ip_family         = (known after apply)
+          + service_ipv4_cidr = (known after apply)
+        }
+
+      + vpc_config {
+          + cluster_security_group_id = (known after apply)
+          + endpoint_private_access   = false
+          + endpoint_public_access    = true
+          + public_access_cidrs       = [
+              + "0.0.0.0/0",
+            ]
+          + subnet_ids                = (known after apply)
+          + vpc_id                    = (known after apply)
+        }
+    }
+
+  # module.eks_cluster.aws_iam_openid_connect_provider.default[0] will be created
+  + resource "aws_iam_openid_connect_provider" "default" {
+      + arn             = (known after apply)
+      + client_id_list  = [
+          + "sts.amazonaws.com",
+        ]
+      + id              = (known after apply)
+      + tags            = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all        = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + thumbprint_list = (known after apply)
+      + url             = (known after apply)
+    }
+
+  # module.eks_cluster.aws_iam_policy.cluster_elb_service_role[0] will be created
+  + resource "aws_iam_policy" "cluster_elb_service_role" {
+      + arn       = (known after apply)
+      + id        = (known after apply)
+      + name      = "gratefuldog-dev-terraform-cluster-ServiceRole"
+      + path      = "/"
+      + policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action   = [
+                          + "elasticloadbalancing:SetSubnets",
+                          + "elasticloadbalancing:SetIpAddressType",
+                          + "ec2:DescribeInternetGateways",
+                          + "ec2:DescribeAddresses",
+                          + "ec2:DescribeAccountAttributes",
+                        ]
+                      + Effect   = "Allow"
+                      + Resource = "*"
+                      + Sid      = "AllowElasticLoadBalancer"
+                    },
+                  + {
+                      + Action   = "logs:CreateLogGroup"
+                      + Effect   = "Deny"
+                      + Resource = "*"
+                      + Sid      = "DenyCreateLogGroup"
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + policy_id = (known after apply)
+      + tags_all  = (known after apply)
+    }
+
+  # module.eks_cluster.aws_iam_role.default[0] will be created
+  + resource "aws_iam_role" "default" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "eks.amazonaws.com"
+                        }
+                      + Sid       = ""
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "gratefuldog-dev-terraform-cluster"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags                  = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all              = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy {
+          + name   = (known after apply)
+          + policy = (known after apply)
+        }
+    }
+
+  # module.eks_cluster.aws_iam_role_policy_attachment.amazon_eks_cluster_policy[0] will be created
+  + resource "aws_iam_role_policy_attachment" "amazon_eks_cluster_policy" {
+      + id         = (known after apply)
+      + policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+      + role       = "gratefuldog-dev-terraform-cluster"
+    }
+
+  # module.eks_cluster.aws_iam_role_policy_attachment.amazon_eks_service_policy[0] will be created
+  + resource "aws_iam_role_policy_attachment" "amazon_eks_service_policy" {
+      + id         = (known after apply)
+      + policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+      + role       = "gratefuldog-dev-terraform-cluster"
+    }
+
+  # module.eks_cluster.aws_iam_role_policy_attachment.cluster_elb_service_role[0] will be created
+  + resource "aws_iam_role_policy_attachment" "cluster_elb_service_role" {
+      + id         = (known after apply)
+      + policy_arn = (known after apply)
+      + role       = "gratefuldog-dev-terraform-cluster"
+    }
+
+  # module.eks_cluster.aws_kms_alias.cluster[0] will be created
+  + resource "aws_kms_alias" "cluster" {
+      + arn            = (known after apply)
+      + id             = (known after apply)
+      + name           = "alias/gratefuldog-dev-terraform-cluster"
+      + name_prefix    = (known after apply)
+      + target_key_arn = (known after apply)
+      + target_key_id  = (known after apply)
+    }
+
+  # module.eks_cluster.aws_kms_key.cluster[0] will be created
+  + resource "aws_kms_key" "cluster" {
+      + arn                                = (known after apply)
+      + bypass_policy_lockout_safety_check = false
+      + customer_master_key_spec           = "SYMMETRIC_DEFAULT"
+      + deletion_window_in_days            = 10
+      + description                        = "EKS Cluster gratefuldog-dev-terraform-cluster Encryption Config KMS Key"
+      + enable_key_rotation                = true
+      + id                                 = (known after apply)
+      + is_enabled                         = true
+      + key_id                             = (known after apply)
+      + key_usage                          = "ENCRYPT_DECRYPT"
+      + multi_region                       = (known after apply)
+      + policy                             = (known after apply)
+      + tags                               = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all                           = {
+          + "Attributes" = "cluster"
+          + "Name"       = "gratefuldog-dev-terraform-cluster"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+    }
+
+  # module.eks_cluster.aws_security_group_rule.managed_ingress_cidr_blocks[0] will be created
+  + resource "aws_security_group_rule" "managed_ingress_cidr_blocks" {
+      + cidr_blocks              = [
+          + "172.16.0.0/16",
+        ]
+      + description              = "Allow inbound traffic from CIDR blocks"
+      + from_port                = 0
+      + id                       = (known after apply)
+      + protocol                 = "-1"
+      + security_group_id        = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 65535
+      + type                     = "ingress"
+    }
+
+  # module.eks_cluster.aws_security_group_rule.managed_ingress_security_groups[0] will be created
+  + resource "aws_security_group_rule" "managed_ingress_security_groups" {
+      + description              = "Allow inbound traffic from existing Security Groups"
+      + from_port                = 0
+      + id                       = (known after apply)
+      + protocol                 = "-1"
+      + security_group_id        = (known after apply)
+      + self                     = false
+      + source_security_group_id = (known after apply)
+      + to_port                  = 65535
+      + type                     = "ingress"
+    }
+
+  # module.eks_cluster.kubernetes_config_map.aws_auth_ignore_changes[0] will be created
+  + resource "kubernetes_config_map" "aws_auth_ignore_changes" {
+      + data = {
+          + "mapAccounts" = jsonencode([])
+          + "mapRoles"    = jsonencode([])
+          + "mapUsers"    = jsonencode([])
+        }
+      + id   = (known after apply)
+
+      + metadata {
+          + generation       = (known after apply)
+          + name             = "aws-auth"
+          + namespace        = "kube-system"
+          + resource_version = (known after apply)
+          + uid              = (known after apply)
+        }
+    }
+
+  # module.eks_cluster.null_resource.wait_for_cluster[0] will be created
+  + resource "null_resource" "wait_for_cluster" {
+      + id = (known after apply)
+    }
+
+  # module.eks_node_group.aws_eks_node_group.default[0] will be created
+  + resource "aws_eks_node_group" "default" {
+      + ami_type               = "AL2_x86_64"
+      + arn                    = (known after apply)
+      + capacity_type          = (known after apply)
+      + cluster_name           = (known after apply)
+      + disk_size              = (known after apply)
+      + id                     = (known after apply)
+      + instance_types         = [
+          + "t3.medium",
+          + "t3.small",
+        ]
+      + node_group_name        = "gratefuldog-dev-terraform-workers"
+      + node_group_name_prefix = (known after apply)
+      + node_role_arn          = (known after apply)
+      + release_version        = (known after apply)
+      + resources              = (known after apply)
+      + status                 = (known after apply)
+      + subnet_ids             = (known after apply)
+      + tags                   = (known after apply)
+      + tags_all               = (known after apply)
+      + version                = (known after apply)
+
+      + launch_template {
+          + id      = (known after apply)
+          + name    = (known after apply)
+          + version = (known after apply)
+        }
+
+      + scaling_config {
+          + desired_size = 3
+          + max_size     = 5
+          + min_size     = 2
+        }
+
+      + update_config {
+          + max_unavailable            = (known after apply)
+          + max_unavailable_percentage = (known after apply)
+        }
+    }
+
+  # module.eks_node_group.aws_iam_role.default[0] will be created
+  + resource "aws_iam_role" "default" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "ec2.amazonaws.com"
+                        }
+                      + Sid       = ""
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "gratefuldog-dev-terraform-workers"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags                  = {
+          + "Attributes" = "workers"
+          + "Name"       = "gratefuldog-dev-terraform-workers"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all              = {
+          + "Attributes" = "workers"
+          + "Name"       = "gratefuldog-dev-terraform-workers"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + unique_id             = (known after apply)
+
+      + inline_policy {
+          + name   = (known after apply)
+          + policy = (known after apply)
+        }
+    }
+
+  # module.eks_node_group.aws_iam_role_policy_attachment.amazon_ec2_container_registry_read_only[0] will be created
+  + resource "aws_iam_role_policy_attachment" "amazon_ec2_container_registry_read_only" {
+      + id         = (known after apply)
+      + policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+      + role       = "gratefuldog-dev-terraform-workers"
+    }
+
+  # module.eks_node_group.aws_iam_role_policy_attachment.amazon_eks_cni_policy[0] will be created
+  + resource "aws_iam_role_policy_attachment" "amazon_eks_cni_policy" {
+      + id         = (known after apply)
+      + policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+      + role       = "gratefuldog-dev-terraform-workers"
+    }
+
+  # module.eks_node_group.aws_iam_role_policy_attachment.amazon_eks_worker_node_policy[0] will be created
+  + resource "aws_iam_role_policy_attachment" "amazon_eks_worker_node_policy" {
+      + id         = (known after apply)
+      + policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+      + role       = "gratefuldog-dev-terraform-workers"
+    }
+
+  # module.eks_node_group.aws_launch_template.default[0] will be created
+  + resource "aws_launch_template" "default" {
+      + arn                    = (known after apply)
+      + default_version        = (known after apply)
+      + ebs_optimized          = "true"
+      + id                     = (known after apply)
+      + latest_version         = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = "gratefuldog-dev-terraform-workers"
+      + tags                   = (known after apply)
+      + tags_all               = (known after apply)
+      + update_default_version = true
+
+      + block_device_mappings {
+          + device_name = "/dev/xvda"
+
+          + ebs {
+              + delete_on_termination = "true"
+              + encrypted             = "true"
+              + iops                  = (known after apply)
+              + throughput            = (known after apply)
+              + volume_size           = 20
+              + volume_type           = "gp2"
+            }
+        }
+
+      + metadata_options {
+          + http_endpoint               = "enabled"
+          + http_protocol_ipv6          = "disabled"
+          + http_put_response_hop_limit = 2
+          + http_tokens                 = "required"
+          + instance_metadata_tags      = "disabled"
+        }
+    }
+
+  # module.subnets.aws_eip.default[0] will be created
+  + resource "aws_eip" "default" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = (known after apply)
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + tags_all             = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + vpc                  = true
+    }
+
+  # module.subnets.aws_eip.default[1] will be created
+  + resource "aws_eip" "default" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = (known after apply)
+      + id                   = (known after apply)
+      + instance             = (known after apply)
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags                 = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + tags_all             = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + vpc                  = true
+    }
+
+  # module.subnets.aws_nat_gateway.default[0] will be created
+  + resource "aws_nat_gateway" "default" {
+      + allocation_id        = (known after apply)
+      + connectivity_type    = "public"
+      + id                   = (known after apply)
+      + network_interface_id = (known after apply)
+      + private_ip           = (known after apply)
+      + public_ip            = (known after apply)
+      + subnet_id            = (known after apply)
+      + tags                 = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + tags_all             = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+    }
+
+  # module.subnets.aws_nat_gateway.default[1] will be created
+  + resource "aws_nat_gateway" "default" {
+      + allocation_id        = (known after apply)
+      + connectivity_type    = "public"
+      + id                   = (known after apply)
+      + network_interface_id = (known after apply)
+      + private_ip           = (known after apply)
+      + public_ip            = (known after apply)
+      + subnet_id            = (known after apply)
+      + tags                 = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + tags_all             = {
+          + "Attributes"                                              = "nat"
+          + "Name"                                                    = "gratefuldog-dev-terraform-nat-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+    }
+
+  # module.subnets.aws_network_acl.private[0] will be created
+  + resource "aws_network_acl" "private" {
+      + arn        = (known after apply)
+      + egress     = (known after apply)
+      + id         = (known after apply)
+      + ingress    = (known after apply)
+      + owner_id   = (known after apply)
+      + subnet_ids = (known after apply)
+      + tags       = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + tags_all   = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + vpc_id     = (known after apply)
+    }
+
+  # module.subnets.aws_network_acl.public[0] will be created
+  + resource "aws_network_acl" "public" {
+      + arn        = (known after apply)
+      + egress     = (known after apply)
+      + id         = (known after apply)
+      + ingress    = (known after apply)
+      + owner_id   = (known after apply)
+      + subnet_ids = (known after apply)
+      + tags       = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + tags_all   = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + vpc_id     = (known after apply)
+    }
+
+  # module.subnets.aws_network_acl_rule.private4_egress[0] will be created
+  + resource "aws_network_acl_rule" "private4_egress" {
+      + cidr_block     = "0.0.0.0/0"
+      + egress         = true
+      + from_port      = 0
+      + id             = (known after apply)
+      + network_acl_id = (known after apply)
+      + protocol       = "-1"
+      + rule_action    = "allow"
+      + rule_number    = 100
+      + to_port        = 0
+    }
+
+  # module.subnets.aws_network_acl_rule.private4_ingress[0] will be created
+  + resource "aws_network_acl_rule" "private4_ingress" {
+      + cidr_block     = "0.0.0.0/0"
+      + egress         = false
+      + from_port      = 0
+      + id             = (known after apply)
+      + network_acl_id = (known after apply)
+      + protocol       = "-1"
+      + rule_action    = "allow"
+      + rule_number    = 100
+      + to_port        = 0
+    }
+
+  # module.subnets.aws_network_acl_rule.public4_egress[0] will be created
+  + resource "aws_network_acl_rule" "public4_egress" {
+      + cidr_block     = "0.0.0.0/0"
+      + egress         = true
+      + from_port      = 0
+      + id             = (known after apply)
+      + network_acl_id = (known after apply)
+      + protocol       = "-1"
+      + rule_action    = "allow"
+      + rule_number    = 100
+      + to_port        = 0
+    }
+
+  # module.subnets.aws_network_acl_rule.public4_ingress[0] will be created
+  + resource "aws_network_acl_rule" "public4_ingress" {
+      + cidr_block     = "0.0.0.0/0"
+      + egress         = false
+      + from_port      = 0
+      + id             = (known after apply)
+      + network_acl_id = (known after apply)
+      + protocol       = "-1"
+      + rule_action    = "allow"
+      + rule_number    = 100
+      + to_port        = 0
+    }
+
+  # module.subnets.aws_route.nat4[0] will be created
+  + resource "aws_route" "nat4" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+
+      + timeouts {
+          + create = "5m"
+          + delete = "10m"
+        }
+    }
+
+  # module.subnets.aws_route.nat4[1] will be created
+  + resource "aws_route" "nat4" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + nat_gateway_id         = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+
+      + timeouts {
+          + create = "5m"
+          + delete = "10m"
+        }
+    }
+
+  # module.subnets.aws_route.public[0] will be created
+  + resource "aws_route" "public" {
+      + destination_cidr_block = "0.0.0.0/0"
+      + gateway_id             = (known after apply)
+      + id                     = (known after apply)
+      + instance_id            = (known after apply)
+      + instance_owner_id      = (known after apply)
+      + network_interface_id   = (known after apply)
+      + origin                 = (known after apply)
+      + route_table_id         = (known after apply)
+      + state                  = (known after apply)
+
+      + timeouts {}
+    }
+
+  # module.subnets.aws_route_table.private[0] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + tags_all         = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.subnets.aws_route_table.private[1] will be created
+  + resource "aws_route_table" "private" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + tags_all         = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.subnets.aws_route_table.public[0] will be created
+  + resource "aws_route_table" "public" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = (known after apply)
+      + tags             = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + tags_all         = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # module.subnets.aws_route_table_association.private[0] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.subnets.aws_route_table_association.private[1] will be created
+  + resource "aws_route_table_association" "private" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.subnets.aws_route_table_association.public[0] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.subnets.aws_route_table_association.public[1] will be created
+  + resource "aws_route_table_association" "public" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # module.subnets.aws_subnet.private[0] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "172.16.0.0/19"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = "ip-name"
+      + tags                                           = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + tags_all                                       = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + vpc_id                                         = (known after apply)
+
+      + timeouts {
+          + create = "10m"
+          + delete = "20m"
+        }
+    }
+
+  # module.subnets.aws_subnet.private[1] will be created
+  + resource "aws_subnet" "private" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "172.16.32.0/19"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = "ip-name"
+      + tags                                           = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + tags_all                                       = {
+          + "Attributes"                                              = "private"
+          + "Name"                                                    = "gratefuldog-dev-terraform-private-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/internal-elb"                         = "1"
+        }
+      + vpc_id                                         = (known after apply)
+
+      + timeouts {
+          + create = "10m"
+          + delete = "20m"
+        }
+    }
+
+  # module.subnets.aws_subnet.public[0] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "172.16.96.0/19"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = "ip-name"
+      + tags                                           = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + tags_all                                       = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public-use2a"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + vpc_id                                         = (known after apply)
+
+      + timeouts {
+          + create = "10m"
+          + delete = "20m"
+        }
+    }
+
+  # module.subnets.aws_subnet.public[1] will be created
+  + resource "aws_subnet" "public" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-east-2b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "172.16.128.0/19"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = "ip-name"
+      + tags                                           = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + tags_all                                       = {
+          + "Attributes"                                              = "public"
+          + "Name"                                                    = "gratefuldog-dev-terraform-public-use2b"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+          + "kubernetes.io/role/elb"                                  = "1"
+        }
+      + vpc_id                                         = (known after apply)
+
+      + timeouts {
+          + create = "10m"
+          + delete = "20m"
+        }
+    }
+
+  # module.vpc.aws_default_security_group.default[0] will be created
+  + resource "aws_default_security_group" "default" {
+      + arn                    = (known after apply)
+      + description            = (known after apply)
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = (known after apply)
+      + name                   = (known after apply)
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name"                                                    = "Default Security Group"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + tags_all               = {
+          + "Name"                                                    = "Default Security Group"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # module.vpc.aws_internet_gateway.default[0] will be created
+  + resource "aws_internet_gateway" "default" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Name"                                                    = "gratefuldog-dev-terraform"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + tags_all = {
+          + "Name"                                                    = "gratefuldog-dev-terraform"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # module.vpc.aws_vpc.default[0] will be created
+  + resource "aws_vpc" "default" {
+      + arn                                  = (known after apply)
+      + assign_generated_ipv6_cidr_block     = true
+      + cidr_block                           = "172.16.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_classiclink                   = false
+      + enable_classiclink_dns_support       = false
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Name"                                                    = "gratefuldog-dev-terraform"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+      + tags_all                             = {
+          + "Name"                                                    = "gratefuldog-dev-terraform"
+          + "Namespace"                                               = "gratefuldog"
+          + "Stage"                                                   = "dev"
+          + "kubernetes.io/cluster/gratefuldog-dev-terraform-cluster" = "shared"
+        }
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.data.aws_iam_policy_document.aggregated_policy[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_iam_policy_document" "aggregated_policy" {
+      + id                        = (known after apply)
+      + json                      = (known after apply)
+      + override_policy_documents = [
+          + jsonencode(
+                {
+                  + Statement = [
+                      + {
+                          + Action    = "s3:PutObject"
+                          + Effect    = "Allow"
+                          + Principal = {
+                              + AWS = "arn:aws:iam::033677994240:root"
+                            }
+                          + Resource  = "arn:aws:s3:::gratefuldog-dev-terraform-alb-access-logs/*"
+                          + Sid       = ""
+                        },
+                      + {
+                          + Action    = "s3:PutObject"
+                          + Condition = {
+                              + StringEquals = {
+                                  + "s3:x-amz-acl" = "bucket-owner-full-control"
+                                }
+                            }
+                          + Effect    = "Allow"
+                          + Principal = {
+                              + Service = "delivery.logs.amazonaws.com"
+                            }
+                          + Resource  = "arn:aws:s3:::gratefuldog-dev-terraform-alb-access-logs/*"
+                          + Sid       = ""
+                        },
+                      + {
+                          + Action    = "s3:GetBucketAcl"
+                          + Effect    = "Allow"
+                          + Principal = {
+                              + Service = "delivery.logs.amazonaws.com"
+                            }
+                          + Resource  = "arn:aws:s3:::gratefuldog-dev-terraform-alb-access-logs"
+                          + Sid       = ""
+                        },
+                    ]
+                  + Version   = "2012-10-17"
+                }
+            ),
+        ]
+      + source_policy_documents   = [
+          + (known after apply),
+        ]
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.data.aws_iam_policy_document.bucket_policy[0] will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_iam_policy_document" "bucket_policy" {
+      + id   = (known after apply)
+      + json = (known after apply)
+
+      + statement {
+          + actions   = [
+              + "s3:*",
+            ]
+          + effect    = "Deny"
+          + resources = [
+              + (known after apply),
+              + (known after apply),
+            ]
+          + sid       = "ForceSSLOnlyAccess"
+
+          + condition {
+              + test     = "Bool"
+              + values   = [
+                  + "false",
+                ]
+              + variable = "aws:SecureTransport"
+            }
+
+          + principals {
+              + identifiers = [
+                  + "*",
+                ]
+              + type        = "*"
+            }
+        }
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket.default[0] will be created
+  + resource "aws_s3_bucket" "default" {
+      + acceleration_status         = (known after apply)
+      + acl                         = (known after apply)
+      + arn                         = (known after apply)
+      + bucket                      = "gratefuldog-dev-terraform-alb-access-logs"
+      + bucket_domain_name          = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags                        = {
+          + "Attributes" = "alb-access-logs"
+          + "Name"       = "gratefuldog-dev-terraform-alb-access-logs"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + tags_all                    = {
+          + "Attributes" = "alb-access-logs"
+          + "Name"       = "gratefuldog-dev-terraform-alb-access-logs"
+          + "Namespace"  = "gratefuldog"
+          + "Stage"      = "dev"
+        }
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+
+      + cors_rule {
+          + allowed_headers = (known after apply)
+          + allowed_methods = (known after apply)
+          + allowed_origins = (known after apply)
+          + expose_headers  = (known after apply)
+          + max_age_seconds = (known after apply)
+        }
+
+      + grant {
+          + id          = (known after apply)
+          + permissions = (known after apply)
+          + type        = (known after apply)
+          + uri         = (known after apply)
+        }
+
+      + lifecycle_rule {
+          + abort_incomplete_multipart_upload_days = (known after apply)
+          + enabled                                = (known after apply)
+          + id                                     = (known after apply)
+          + prefix                                 = (known after apply)
+          + tags                                   = (known after apply)
+
+          + expiration {
+              + date                         = (known after apply)
+              + days                         = (known after apply)
+              + expired_object_delete_marker = (known after apply)
+            }
+
+          + noncurrent_version_expiration {
+              + days = (known after apply)
+            }
+
+          + noncurrent_version_transition {
+              + days          = (known after apply)
+              + storage_class = (known after apply)
+            }
+
+          + transition {
+              + date          = (known after apply)
+              + days          = (known after apply)
+              + storage_class = (known after apply)
+            }
+        }
+
+      + logging {
+          + target_bucket = (known after apply)
+          + target_prefix = (known after apply)
+        }
+
+      + object_lock_configuration {
+          + object_lock_enabled = (known after apply)
+
+          + rule {
+              + default_retention {
+                  + days  = (known after apply)
+                  + mode  = (known after apply)
+                  + years = (known after apply)
+                }
+            }
+        }
+
+      + replication_configuration {
+          + role = (known after apply)
+
+          + rules {
+              + delete_marker_replication_status = (known after apply)
+              + id                               = (known after apply)
+              + prefix                           = (known after apply)
+              + priority                         = (known after apply)
+              + status                           = (known after apply)
+
+              + destination {
+                  + account_id         = (known after apply)
+                  + bucket             = (known after apply)
+                  + replica_kms_key_id = (known after apply)
+                  + storage_class      = (known after apply)
+
+                  + access_control_translation {
+                      + owner = (known after apply)
+                    }
+
+                  + metrics {
+                      + minutes = (known after apply)
+                      + status  = (known after apply)
+                    }
+
+                  + replication_time {
+                      + minutes = (known after apply)
+                      + status  = (known after apply)
+                    }
+                }
+
+              + filter {
+                  + prefix = (known after apply)
+                  + tags   = (known after apply)
+                }
+
+              + source_selection_criteria {
+                  + sse_kms_encrypted_objects {
+                      + enabled = (known after apply)
+                    }
+                }
+            }
+        }
+
+      + server_side_encryption_configuration {
+          + rule {
+              + bucket_key_enabled = (known after apply)
+
+              + apply_server_side_encryption_by_default {
+                  + kms_master_key_id = (known after apply)
+                  + sse_algorithm     = (known after apply)
+                }
+            }
+        }
+
+      + versioning {
+          + enabled    = (known after apply)
+          + mfa_delete = (known after apply)
+        }
+
+      + website {
+          + error_document           = (known after apply)
+          + index_document           = (known after apply)
+          + redirect_all_requests_to = (known after apply)
+          + routing_rules            = (known after apply)
+        }
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket_acl.default[0] will be created
+  + resource "aws_s3_bucket_acl" "default" {
+      + acl    = "log-delivery-write"
+      + bucket = (known after apply)
+      + id     = (known after apply)
+
+      + access_control_policy {
+          + grant {
+              + permission = (known after apply)
+
+              + grantee {
+                  + display_name  = (known after apply)
+                  + email_address = (known after apply)
+                  + id            = (known after apply)
+                  + type          = (known after apply)
+                  + uri           = (known after apply)
+                }
+            }
+
+          + owner {
+              + display_name = (known after apply)
+              + id           = (known after apply)
+            }
+        }
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket_ownership_controls.default[0] will be created
+  + resource "aws_s3_bucket_ownership_controls" "default" {
+      + bucket = (known after apply)
+      + id     = (known after apply)
+
+      + rule {
+          + object_ownership = "BucketOwnerPreferred"
+        }
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket_policy.default[0] will be created
+  + resource "aws_s3_bucket_policy" "default" {
+      + bucket = (known after apply)
+      + id     = (known after apply)
+      + policy = (known after apply)
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket_public_access_block.default[0] will be created
+  + resource "aws_s3_bucket_public_access_block" "default" {
+      + block_public_acls       = true
+      + block_public_policy     = true
+      + bucket                  = (known after apply)
+      + id                      = (known after apply)
+      + ignore_public_acls      = true
+      + restrict_public_buckets = true
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket_server_side_encryption_configuration.default[0] will be created
+  + resource "aws_s3_bucket_server_side_encryption_configuration" "default" {
+      + bucket = (known after apply)
+      + id     = (known after apply)
+
+      + rule {
+          + bucket_key_enabled = false
+
+          + apply_server_side_encryption_by_default {
+              + sse_algorithm = "AES256"
+            }
+        }
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket_versioning.default[0] will be created
+  + resource "aws_s3_bucket_versioning" "default" {
+      + bucket = (known after apply)
+      + id     = (known after apply)
+
+      + versioning_configuration {
+          + mfa_delete = (known after apply)
+          + status     = "Enabled"
+        }
+    }
+
+  # module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.time_sleep.wait_for_aws_s3_bucket_settings[0] will be created
+  + resource "time_sleep" "wait_for_aws_s3_bucket_settings" {
+      + create_duration  = "30s"
+      + destroy_duration = "30s"
+      + id               = (known after apply)
+    }
+
+Plan: 62 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + eks_cluster_arn                       = (known after apply)
+  + eks_cluster_endpoint                  = (known after apply)
+  + eks_cluster_id                        = (known after apply)
+  + eks_cluster_identity_oidc_issuer      = (known after apply)
+  + eks_cluster_managed_security_group_id = (known after apply)
+  + eks_cluster_version                   = "1.22"
+  + eks_node_group_arn                    = (known after apply)
+  + eks_node_group_id                     = (known after apply)
+  + eks_node_group_resources              = [
+      + (known after apply),
+    ]
+  + eks_node_group_role_arn               = (known after apply)
+  + eks_node_group_role_name              = "gratefuldog-dev-terraform-workers"
+  + eks_node_group_status                 = (known after apply)
+  + private_subnet_cidrs                  = [
+      + "172.16.0.0/19",
+      + "172.16.32.0/19",
+    ]
+  + public_subnet_cidrs                   = [
+      + "172.16.96.0/19",
+      + "172.16.128.0/19",
+    ]
+  + vpc_cidr                              = "172.16.0.0/16"
+
+Warning: Argument is deprecated
+
+  with module.alb.module.access_logs.module.s3_bucket.module.aws_s3_bucket.aws_s3_bucket.default,
+  on .terraform/modules/alb.access_logs.s3_bucket.aws_s3_bucket/main.tf line 30, in resource "aws_s3_bucket" "default":
+  30: resource "aws_s3_bucket" "default" {
+
+Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

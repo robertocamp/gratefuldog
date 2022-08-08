@@ -1,0 +1,36 @@
+Apply complete! Resources: 62 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+eks_cluster_arn = "arn:aws:eks:us-east-2:240195868935:cluster/gratefuldog-dev-terraform-cluster"
+eks_cluster_endpoint = "https://41117CDDF9D73604B31CC3A911FDE844.gr7.us-east-2.eks.amazonaws.com"
+eks_cluster_id = "gratefuldog-dev-terraform-cluster"
+eks_cluster_identity_oidc_issuer = "https://oidc.eks.us-east-2.amazonaws.com/id/41117CDDF9D73604B31CC3A911FDE844"
+eks_cluster_managed_security_group_id = "sg-03cdf0e57dc1b7a0f"
+eks_cluster_version = "1.22"
+eks_node_group_arn = "arn:aws:eks:us-east-2:240195868935:nodegroup/gratefuldog-dev-terraform-cluster/gratefuldog-dev-terraform-workers/44c13d06-dec1-9103-4134-6ab98df3ad77"
+eks_node_group_id = "gratefuldog-dev-terraform-cluster:gratefuldog-dev-terraform-workers"
+eks_node_group_resources = tolist([
+  tolist([
+    {
+      "autoscaling_groups" = tolist([
+        {
+          "name" = "eks-gratefuldog-dev-terraform-workers-44c13d06-dec1-9103-4134-6ab98df3ad77"
+        },
+      ])
+      "remote_access_security_group_id" = ""
+    },
+  ]),
+])
+eks_node_group_role_arn = "arn:aws:iam::240195868935:role/gratefuldog-dev-terraform-workers"
+eks_node_group_role_name = "gratefuldog-dev-terraform-workers"
+eks_node_group_status = "ACTIVE"
+private_subnet_cidrs = tolist([
+  "172.16.0.0/19",
+  "172.16.32.0/19",
+])
+public_subnet_cidrs = tolist([
+  "172.16.96.0/19",
+  "172.16.128.0/19",
+])
+vpc_cidr = "172.16.0.0/16"
